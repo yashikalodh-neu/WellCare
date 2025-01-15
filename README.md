@@ -1,9 +1,3 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/6xRviSdT)
-# Welcome to the course CSYE6200- Concepts of Object Oriented Design
-> Northeastern University, College of Engineering
-
-# Video Link : https://northeastern-my.sharepoint.com/:v:/r/personal/lodh_y_northeastern_edu/Documents/1733768115620258.mov?csf=1&web=1&e=ZFiLMQ&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D
-
 # WellCare
 
 > Hospitals today face increasing challenges in managing their operations efficiently due to growing

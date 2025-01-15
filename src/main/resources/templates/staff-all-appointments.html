@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="/js/common.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        WellCare
+    </title>
+    <!-- Favicon -->
+<!--    <link href="/img/brand/favicon.png" rel="icon" type="image/png">-->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+</head>
+
+<body class="">
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <!-- Sidebar -->
+    <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <h1>WellCare</h1>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <h1>WellCare</h1>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Form -->
+            <form class="mt-4 mb-3 d-md-none">
+                <div class="input-group input-group-rounded input-group-merge">
+                    <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="fa fa-search"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./staff-dashboard">
+                        <i class="ni ni-tv-2 text-primary"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./staff-profile">
+                        <i class="ni ni-tv-2 text-blue"></i>My Profile
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="http://localhost:8080/staff-appointments">
+                        <i class="ni ni-planet text-blue"></i>Pending Requests
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://localhost:8080/staffappointment">
+                        <i class="ni ni-pin-3 text-orange"></i> All Appointments
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">Appointment Requests</a>
+            <!-- Form -->
+            <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Search" type="text">
+                    </div>
+                </div>
+            </form>
+            <!-- User -->
+            <ul class="navbar-nav align-items-center d-none d-md-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+<!--                  <img alt="Image placeholder" src="/img/theme/team-2-800x800.jpg">-->
+                </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="fullName  mb-0 text-sm  font-weight-bold"> Jones</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <a onclick="logout()" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8">
+        <div class="container-fluid">
+            <div class="header-body">
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt--7">
+        <!-- Table -->
+        <div class="row">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-header border-0">
+                        <h3 class="mb-0">Appointment Requests</h3>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table align-items-center table-flush" id="appointments-table">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Sr. No.</th>
+                                <th scope="col">Patient Name</th>
+                                <th scope="col">Doctor Name</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Reason</th>
+                                <th scope="col">Type</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="appointments-body">
+                            <!-- Dynamic Content -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer py-4">
+                        <nav aria-label="...">
+                            <ul class="pagination justify-content-end mb-0">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">
+                                        <i class="fas fa-angle-left"></i>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                </li>
+                                <li class="page-item active">
+                                    <a class="page-link" href="#">1</a>
+                                </li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">
+                                        <i class="fas fa-angle-right"></i>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Update Status Modal -->
+        <div class="modal fade" id="updateStatusModal" tabindex="-1" role="dialog" aria-labelledby="updateStatusModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateStatusModalLabel">Update Appointment Status</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="updateStatusForm">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="statusScheduled" value="Confirmed">
+                                <label class="form-check-label" for="statusScheduled">Confirmed</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="status" id="statusCancelled" value="Cancelled">
+                                <label class="form-check-label" for="statusCancelled">Cancelled</label>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="updateStatusButton">Update</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row align-items-center justify-content-xl-between">
+                <div class="col-xl-6">
+                    <div class="copyright text-center text-xl-left text-muted">
+                        &copy; 2024 <a href="http://localhost:8080/staff-dashboard" class="font-weight-bold ml-1" target="_blank">Well Care</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!--   Core   -->
+<script src="/js/plugins/jquery/dist/jquery.min.js"></script>
+<script src="/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!--   Optional JS   -->
+<!--   Argon JS   -->
+<script src="/js/argon-dashboard.min.js?v=1.1.2"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+    window.TrackJS &&
+    TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const apiUrl = '/appointments';
+        let currentAppointmentId = null;
+
+        // Event delegation for Update Status button click
+        document.querySelector('#appointments-body').addEventListener('click', function (event) {
+            if (event.target && event.target.classList.contains('update-status-btn')) {
+                currentAppointmentId = event.target.dataset.appointmentId;
+                // Show the modal
+                jQuery('#updateStatusModal').modal('show');
+            }
+        });
+
+        // Update button in modal
+        document.querySelector('#updateStatusButton').addEventListener('click', async function () {
+            const selectedStatus = document.querySelector('input[name="status"]:checked');
+            if (!selectedStatus) {
+                alert('Please select a status!');
+                return;
+            }
+            try {
+                const response = await fetch(`${apiUrl}/${currentAppointmentId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ status: selectedStatus.value }),
+                });
+                if (!response.ok) {
+                    throw new Error('Failed to update status');
+                }
+                // Reload appointments after update
+                loadAppointments();
+                $('#updateStatusModal').modal('hide');
+            } catch (error) {
+                console.error('Error updating status:', error);
+                alert('Failed to update appointment status.');
+            }
+        });
+
+        // Function to load appointments
+        async function loadAppointments() {
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Failed to fetch appointments');
+                }
+                const appointments = await response.json();
+                const tableBody = document.querySelector('#appointments-body');
+                tableBody.innerHTML = ''; // Clear table body
+                // Filter appointments with status "Pending"
+                const pendingAppointments = appointments.filter(
+                    (appointment) => appointment.status === 'Pending'
+                );
+                pendingAppointments.forEach((appointment, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+<td>${index + 1}</td>
+<td>${appointment.patientName}</td>
+<td>${appointment.staffName}</td>
+<td>${new Date(appointment.appointmentDate).toLocaleDateString()}</td>
+<td>${appointment.timeFrom} - ${appointment.timeTo}</td>
+<td>${appointment.status}</td>
+<td>${appointment.reason}</td>
+<td>${appointment.appointmentType}</td>
+<td>
+<button class="btn btn-info update-status-btn" data-appointment-id="${appointment.appointmentId}">
+                            Update Status
+</button>
+</td>
+                `;
+                    tableBody.appendChild(row);
+                });
+            } catch (error) {
+                console.error('Error fetching appointments:', error);
+                alert('Failed to load appointments.');
+            }
+        }
+
+        // Initial load
+        loadAppointments();
+    });
+
+    // Logout function
+    function logout() {
+        // Show confirmation alert
+        const confirmLogout = confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            // Delete all cookies
+            document.cookie.split(";").forEach((cookie) => {
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            });
+
+            // Redirect to login page
+            window.location.href = "/login";
+        }
+    }
+
+    // Fetch the first_name, middle_name, and last_name from the cookies
+    const firstName = getCookie('first_name') || 'Guest';
+    const middleName = getCookie('middle_name') || '';
+    const lastName = getCookie('last_name') || '';
+
+    // Format the full name
+    const fullName = `${firstName} ${lastName} `.trim();
+
+    // Ensure the dropdown toggles when clicked
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbarNameElement = document.querySelector('.fullName'); // Target the top-right navbar name
+        if (navbarNameElement) {
+            navbarNameElement.textContent = fullName;
+        }
+
+        const dropdownToggle = document.querySelector('.nav-item.dropdown > .nav-link');
+        const dropdownMenu = document.querySelector('.nav-item.dropdown .dropdown-menu');
+
+        if (dropdownToggle && dropdownMenu) {
+            // Add click event listener to toggle dropdown visibility
+            dropdownToggle.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close the dropdown when clicking outside
+            document.addEventListener('click', (event) => {
+                if (
+                    !dropdownToggle.contains(event.target) &&
+                    !dropdownMenu.contains(event.target)
+                ) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        } else {
+            console.error('Dropdown toggle or menu element not found in the DOM.');
+        }
+
+        const logoutLink = document.querySelector(".dropdown-item[onclick='logout()']");
+        if (logoutLink) {
+            logoutLink.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                logout(); // Call the logout function
+            });
+        } else {
+            console.error("Logout link not found in the DOM.");
+        }
+    });
+</script>
+
+</body>
+
+</html>

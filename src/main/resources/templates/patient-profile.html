@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <script src="/js/common.js"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>
+    WellCare
+  </title>
+  <!-- Favicon -->
+  <link href="/img/brand/favicon.png" rel="icon" type="image/png">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <!-- Icons -->
+  <link href="/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+  <link href="/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+  <link href="/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+
+</head>
+
+<body class="">
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+  <div class="container-fluid">
+    <!-- Toggler -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Brand -->
+    <h1>WellCare</h1>
+    <!-- Collapse -->
+    <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+      <!-- Collapse header -->
+      <div class="navbar-collapse-header d-md-none">
+        <div class="row">
+          <div class="col-6 collapse-brand">
+            <a href="../index.html">
+              <img src="/img/brand/blue.png">
+            </a>
+          </div>
+          <div class="col-6 collapse-close">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+              <span></span>
+              <span></span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Form -->
+      <form class="mt-4 mb-3 d-md-none">
+        <div class="input-group input-group-rounded input-group-merge">
+          <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+          <div class="input-group-prepend">
+            <div class="input-group-text">
+              <span class="fa fa-search"></span>
+            </div>
+          </div>
+        </div>
+      </form>
+      <!-- Navigation -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="./patient-dashboard">
+            <i class="ni ni-tv-2 text-primary"></i>Dashboard
+          </a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link active" href="./patient-profile">
+            <i class="ni ni-tv-2 text-blue"></i>My Profile
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="http://localhost:8080/scheduleappointment">
+            <i class="ni ni-planet text-blue"></i> Schedule Appointment
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="http://localhost:8080/prescriptions-management">
+            <i class="ni ni-pin-3 text-orange"></i> Prescription
+          </a>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+<div class="main-content">
+  <!-- Navbar -->
+  <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+    <div class="container-fluid">
+      <!-- Brand -->
+      <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">User Profile</a>
+      <!-- Form -->
+      <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+        <div class="form-group mb-0">
+          <div class="input-group input-group-alternative">
+            <div class="input-group-prepend">
+              <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+            <input class="form-control" placeholder="Search" type="text">
+          </div>
+        </div>
+      </form>
+      <!-- User -->
+      <ul class="navbar-nav align-items-center d-none d-md-flex">
+        <li class="nav-item dropdown">
+          <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+<!--                  <img alt="Image placeholder" src="/img/theme/team-2-800x800.jpg">-->
+                </span>
+              <div class="media-body ml-2 d-none d-lg-block">
+                <span class="fullName  mb-0 text-sm  font-weight-bold"> Jones</span>
+              </div>
+            </div>
+          </a>
+          <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+            <a onclick="logout()" class="dropdown-item">
+              <i class="ni ni-user-run"></i>
+              <span>Logout</span>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- End Navbar -->
+  <!-- Header -->
+  <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../static/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <!-- Mask -->
+    <span class="mask bg-gradient-default opacity-8"></span>
+    <!-- Header container -->
+    <div class="container-fluid d-flex align-items-center">
+      <div class="row">
+        <div class="col-lg-7 col-md-10">
+          <h1 class="userName display-2 text-white">Hello </h1>
+          <a href="#!" id="edit-link" class="btn btn-info">Edit Profile</a>
+<!--          <a href="#!" id="save-link" class="btn btn-success" style="display: none;">Save</a>-->
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page content -->
+  <div class="container-fluid mt--7">
+    <div class="row">
+      <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+        <div class="card card-profile shadow">
+          <div class="row justify-content-center">
+            <div class="col-lg-3 order-lg-2">
+              <div class="card-profile-image">
+                <a href="#">
+                  <img src="/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+            <div class="d-flex justify-content-between">
+<!--              <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>-->
+<!--              <a href="#" class="btn btn-sm btn-default float-right">Message</a>-->
+            </div>
+          </div>
+          <div class="card-body pt-0 pt-md-4">
+            <div class="row">
+              <div class="col">
+                <div class="card-profile-stats d-flex justify-content-center mt-md-5">
+                  <div>
+                    <span class="heading">Medical Record No</span>
+                    <span class="description">123456</span>
+                  </div>
+                  <div>
+                    <span class="heading">Gender</span>
+                    <span class="description">Female</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="text-left">
+
+
+              <hr class="my-4" />
+              <div>
+                <label class="form-control-label" for="input-first-name">First Name</label>
+                <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First Name" disabled>
+              </div>
+              <div class="mt-3">
+                <label class="form-control-label" for="input-last-name">Last Name</label>
+                <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last Name" disabled>
+              </div>
+              <div class="mt-3">
+                <label class="form-control-label" for="input-user-name">Username</label>
+                <input type="text" id="input-user-name" class="form-control form-control-alternative" placeholder="Username" disabled>
+              </div>
+              <div class="mt-3">
+                <label class="form-control-label" for="input-dob">Date of Birth</label>
+                <input type="date" id="input-dob" class="form-control form-control-alternative" disabled>
+              </div>
+
+
+<!--              <a href="#">Show more</a>-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-8 order-xl-1">
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My Account</h3>
+
+<!--              <div class="col-4 text-right">-->
+<!--                <a href="#" class="btn btn-sm btn-primary">Settings</a>-->
+<!--              </div>-->
+          </div>
+          </div>
+        </div>
+          <div class="card-body">
+            <form>
+              <!-- User Information -->
+              <h6 class="heading-small text-muted mb-4">User Information</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-patient-id">Patient ID</label>
+                      <input type="text" id="input-patient-id" class="form-control form-control-alternative" placeholder="Patient ID" disabled >
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-phone-number">Phone Number</label>
+                      <input type="text" id="input-phone-number" class="form-control form-control-alternative" placeholder="Phone Number" disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-email">Email</label>
+                      <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="Email" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-address">Address</label>
+                      <input type="text" id="input-address" class="form-control form-control-alternative" placeholder="Address" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Information -->
+              <hr class="my-4" />
+              <h6 class="heading-small text-muted mb-4">Street</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-city">City</label>
+                      <input type="text" id="input-city" class="form-control form-control-alternative" placeholder="City" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-state">State</label>
+                      <input type="text" id="input-state" class="form-control form-control-alternative" placeholder="State" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-postal-code">Postal Code</label>
+                      <input type="text" id="input-postal-code" class="form-control form-control-alternative" placeholder="Postal Code" disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-country">Country</label>
+                      <input type="text" id="input-country" class="form-control form-control-alternative" placeholder="Country" disabled>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr class="my-4" />
+              <h6 class="heading-small text-muted mb-4">Insurance Information</h6>
+              <div class="pl-lg-4">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-insurance-id">Insurance ID</label>
+                      <input type="text" id="input-insurance-id" class="form-control form-control-alternative" placeholder="Insurance ID" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+<!--                    <div class="form-group">-->
+<!--                      <label class="form-control-label" for="input-patient-id">Patient ID</label>-->
+<!--                      <input type="text" id="input-patient-id" class="form-control form-control-alternative" placeholder="Patient ID">-->
+<!--                    </div>-->
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-insurance-provider">Insurance Provider</label>
+                      <input type="text" id="input-insurance-provider" class="form-control form-control-alternative" placeholder="Insurance Provider" disabled>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-insurance-date">Insurance Date</label>
+                      <input type="date" id="input-insurance-date" class="form-control form-control-alternative" placeholder="Insurance Date" disabled>
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-insurance-type">Insurance Type</label>
+                      <input type="text" id="input-insurance-type" class="form-control form-control-alternative" placeholder="Insurance Type" disabled>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="form-group">
+                      <label class="form-control-label" for="input-coverage-details">Coverage Details</label>
+                      <textarea id="input-coverage-details" class="form-control form-control-alternative" rows="3" disabled></textarea>
+                    </div>
+                    <a href="#!" id="save-link" class="btn btn-success" style="display: none;">Save</a>
+
+                  </div>
+                </div>
+              </div>
+            </form>
+      </div>
+    </div>
+    </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="row align-items-center justify-content-xl-between">
+        <div class="col-xl-6">
+          <div class="copyright text-center text-xl-left text-muted">
+            &copy; 2024 <a href="http://localhost:8080/patient-dashboard" class="font-weight-bold ml-1" target="_blank">Well Care</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!--   Core   -->
+<script src="../static/js/plugins/jquery/dist/jquery.min.js"></script>
+<script src="../static/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!--   Optional JS   -->
+<!--   Argon JS   -->
+<script src="../static/js/argon-dashboard.min.js?v=1.1.2"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS &&
+  TrackJS.install({
+    token: "ee6fab19c5a04ac1a32a645abde4613a",
+    application: "argon-dashboard-free"
+  });
+</script>
+<script>
+
+  // console.log(getCookie('token'));
+  // Logout function
+  function logout() {
+    // Show confirmation alert
+    const confirmLogout = confirm("Are you sure you want to logout?");
+    if (confirmLogout) {
+      // Delete all cookies
+      document.cookie.split(";").forEach((cookie) => {
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+      });
+
+      // Redirect to login page
+      window.location.href = "/login";
+    }
+  }
+
+  // Ensure the dropdown toggles when clicked
+  document.addEventListener('DOMContentLoaded', () => {
+    const dropdownToggle = document.querySelector('.nav-item.dropdown > .nav-link');
+    const dropdownMenu = document.querySelector('.nav-item.dropdown .dropdown-menu');
+
+    if (dropdownToggle && dropdownMenu) {
+      // Add click event listener to toggle dropdown visibility
+      dropdownToggle.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        dropdownMenu.classList.toggle('show');
+      });
+
+      // Close the dropdown when clicking outside
+      document.addEventListener('click', (event) => {
+        if (
+                !dropdownToggle.contains(event.target) &&
+                !dropdownMenu.contains(event.target)
+        ) {
+          dropdownMenu.classList.remove('show');
+        }
+      });
+    } else {
+      console.error('Dropdown toggle or menu element not found in the DOM.');
+    }
+
+    const logoutLink = document.querySelector(".dropdown-item[onclick='logout()']");
+    if (logoutLink) {
+      logoutLink.addEventListener("click", (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        logout(); // Call the logout function
+      });
+    } else {
+      console.error("Logout link not found in the DOM.");
+    }
+  });
+
+  function fetchPatientInfo(patientId) {
+    fetch(`/api/patient-info/${patientId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`, // Include JWT token
+        'Content-Type': 'application/json',
+      },
+    })
+            .then((response) => {
+              console.log(response);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              console.log(data); // Debugging
+              // alert(data);
+
+
+              document.getElementById('input-patient-id').value = data.patientId || '';
+              document.getElementById('input-first-name').value = data.firstName || '';
+              document.getElementById('input-last-name').value = data.lastName || '';
+              document.getElementById('input-user-name').value = data.userId || '';
+              document.getElementById('input-dob').value = data.dob || '';
+            })
+            .catch((error) => {
+              console.error('Error fetching patient contact info:', error);
+              alert('Failed to load patient contact information.');
+            });
+  }
+
+
+
+  function fetchInsuranceInfo(patientId) {
+    fetch(`/api/v1/Insurance/${patientId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`, // Include JWT token
+        'Content-Type': 'application/json',
+      },
+    })
+            .then((response) => {
+              // console.log(response);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              // console.log(data); // Debugging
+
+              // Populate form fields with the insurance info
+              document.getElementById('input-insurance-id').value = data.insuranceNumber || '';
+              document.getElementById('input-insurance-provider').value = data.insuranceProvider || '';
+              document.getElementById('input-insurance-type').value = data.insuranceType || '';
+              document.getElementById('input-insurance-date').value = data.insuranceDate || '';
+              document.getElementById('input-coverage-details').value = data.coverageDetails || '';
+            })
+            .catch((error) => {
+              console.error('Error fetching insurance info:', error);
+              alert('Failed to load insurance information.');
+            });
+  }
+
+
+
+
+  function fetchPatientContactInfo(patientId) {
+    fetch(`/api/v1/patientcontactinfo/${patientId}`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`, // Include JWT token
+        'Content-Type': 'application/json',
+      },
+    })
+            .then((response) => {
+              // console.log(response);
+              if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              // console.log(data); // Debugging
+
+              // Populate form fields with the contact info
+              document.getElementById('input-city').value = data.city || '';
+              document.getElementById('input-state').value = data.state || '';
+              document.getElementById('input-postal-code').value = data.postalCode || '';
+              document.getElementById('input-country').value = data.country || '';
+              document.getElementById('input-phone-number').value = data.phoneNumber || '';
+              document.getElementById('input-email').value = data.email || '';
+              document.getElementById('input-address').value = data.address || '';
+            })
+            .catch((error) => {
+              console.error('Error fetching patient contact info:', error);
+              alert('Failed to load patient contact information.');
+            });
+  }
+
+  // Call this function on page load with the patient ID
+  document.addEventListener('DOMContentLoaded', () => {
+    const patientId = getCookie('id'); // Replace this with the actual patient ID
+    fetchPatientInfo(patientId);
+    fetchInsuranceInfo(patientId);
+    fetchPatientContactInfo(patientId);
+  });
+
+  // Function to get a specific cookie value by its name
+  function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+  }
+
+  // Fetch the first_name, middle_name, and last_name from the cookies
+  const firstName = getCookie('first_name') || 'Guest';
+ const middleName = getCookie('middle_name') || '';
+  const lastName = getCookie('last_name') || '';
+
+  // Format the full name
+  const fullName = `${firstName} ${lastName} `.trim();
+  // console.log(fullName);
+
+  // Update the DOM to display the name
+  document.addEventListener('DOMContentLoaded', () => {
+    const userGreetingElement = document.querySelector('.userName'); // Target the element where "Hello Jesse" is written
+    if (userGreetingElement) {
+      userGreetingElement.textContent = `Hello ${firstName}`;
+    }
+
+    const navbarNameElement = document.querySelector('.fullName'); // Target the top-right navbar name
+    if (navbarNameElement) {
+      navbarNameElement.textContent = fullName;
+    }
+  });
+
+
+
+
+
+
+
+  // Utility function to toggle editability of fields
+  function toggleFieldsEditable(enable) {
+    const fields = document.querySelectorAll('input, textarea');
+    fields.forEach(field => {
+      field.disabled = !enable;
+    });
+  }
+
+  // Handle "Edit Profile" click
+  document.addEventListener('DOMContentLoaded', () => {
+    const editLink = document.getElementById('edit-link');
+    const saveLink = document.getElementById('save-link');
+
+    if (editLink) {
+      editLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default behavior
+        const isEditing = !document.getElementById('input-patient-id').disabled;
+
+        if (isEditing) {
+          // Cancel editing
+          toggleFieldsEditable(false);
+          saveLink.style.display = 'none'; // Hide the Save link
+          editLink.textContent = 'Edit Profile'; // Reset link text
+        } else {
+          // Enable editing
+          toggleFieldsEditable(true);
+          saveLink.style.display = 'inline-block'; // Show the Save link
+          editLink.textContent = 'Cancel Edit'; // Change link text
+        }
+      });
+    } else {
+      console.error('Edit link element not found in the DOM.');
+    }
+
+
+    if (saveLink) {
+      saveLink.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default behavior
+
+
+    const patientData = {
+      patientId: document.getElementById('input-patient-id').value,
+      firstName: document.getElementById('input-first-name').value,
+      lastName: document.getElementById('input-last-name').value,
+      userId: document.getElementById('input-user-name').value,
+      dob: document.getElementById('input-dob').value,
+      email: document.getElementById('input-email').value,
+    };
+
+    const insuranceData = {
+      insuranceNumber: document.getElementById('input-insurance-id').value,
+      insuranceProvider: document.getElementById('input-insurance-provider').value,
+      insuranceType: document.getElementById('input-insurance-type').value,
+      insuranceDate: document.getElementById('input-insurance-date').value,
+      coverageDetails: document.getElementById('input-coverage-details').value,
+    };
+
+    const contactData = {
+      city: document.getElementById('input-city').value,
+      state: document.getElementById('input-state').value,
+      postalCode: document.getElementById('input-postal-code').value,
+      country: document.getElementById('input-country').value,
+      phoneNumber: document.getElementById('input-phone-number').value,
+      email: document.getElementById('input-email').value,
+      address: document.getElementById('input-address').value,
+    };
+
+    // Save all fields to the server
+    Promise.all([
+      savePatientInfo(patientData),
+      saveInsuranceInfo(patientData.patientId, insuranceData),
+      saveContactInfo(patientData.patientId, contactData),
+    ])
+            .then(() => {
+              alert('Profile updated successfully!');
+              toggleFieldsEditable(false);
+              saveLink.style.display = 'none'; // Hide the Save link
+              editLink.textContent = 'Edit Profile'; // Reset the Edit link text
+            })
+            .catch(error => {
+              console.error('Error saving data:', error);
+              alert('Failed to save changes.');
+            });
+      });
+    } else {
+      console.error('Save link element not found in the DOM.');
+    }
+  });
+
+  function savePatientInfo(data) {
+    // console.log(data);
+    return fetch(`/api/patient-info/${data.patientId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`,
+        'Content-Type': 'application/json', // Ensure this header is included
+      },
+      body: JSON.stringify(data), // Convert the data object to a JSON string
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error(`Failed to save patient info: ${response.statusText}`);
+      }
+      return response.json(); // Return the server's response as JSON
+    });
+  }
+
+
+  function saveInsuranceInfo(patientId, data) {
+    return fetch(`/api/v1/Insurance/${patientId}`, {
+      method: 'PUT',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(response => {
+      if (!response.ok) throw new Error(`Failed to save insurance info: ${response.statusText}`);
+    });
+  }
+
+  function saveContactInfo(patientId, data) {
+    return fetch(`/api/v1/patientcontactinfo/${patientId}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${getCookie('token')}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }).then(response => {
+      if (!response.ok) throw new Error(`Failed to save contact info: ${response.statusText}`);
+    });
+  }
+
+</script>
+
+
+</body>
+
+</html>

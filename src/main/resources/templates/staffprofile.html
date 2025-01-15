@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>
+        My Profile
+    </title>
+    <!-- Favicon -->
+    <link href="/img/brand/favicon.png" rel="icon" type="image/png">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+    <!-- Icons -->
+    <link href="/js/plugins/nucleo/css/nucleo.css" rel="stylesheet" />
+    <link href="/js/plugins/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet" />
+    <!-- CSS Files -->
+    <link href="/css/argon-dashboard.css?v=1.1.2" rel="stylesheet" />
+
+    <script src="/js/common.js"></script>
+</head>
+
+<body class="">
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white" id="sidenav-main">
+    <!-- Sidebar -->
+    <div class="container-fluid">
+        <!-- Toggler -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Brand -->
+        <h1>WellCare</h1>
+        <!-- Collapse -->
+        <div class="collapse navbar-collapse" id="sidenav-collapse-main">
+            <!-- Collapse header -->
+            <div class="navbar-collapse-header d-md-none">
+                <div class="row">
+                    <div class="col-6 collapse-brand">
+                        <h1>WellCare</h1>
+                    </div>
+                    <div class="col-6 collapse-close">
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
+                            <span></span>
+                            <span></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Form -->
+            <form class="mt-4 mb-3 d-md-none">
+                <div class="input-group input-group-rounded input-group-merge">
+                    <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="Search" aria-label="Search">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <span class="fa fa-search"></span>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="./staff-dashboard">
+                        <i class="ni ni-tv-2 text-primary"></i>Dashboard
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link active" href="./staff-profile">
+                        <i class="ni ni-tv-2 text-blue"></i>My Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://localhost:8080/staff-appointments">
+                        <i class="ni ni-planet text-blue"></i>Pending Requests
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " href="http://localhost:8080/staffappointment">
+                        <i class="ni ni-pin-3 text-orange"></i> All Appointments
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+    </div>
+</nav>
+<div class="main-content">
+    <!-- Navbar -->
+    <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
+        <div class="container-fluid">
+            <!-- Brand -->
+            <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="../index.html">My Profile</a>
+            <!-- Form -->
+            <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
+                <div class="form-group mb-0">
+                    <div class="input-group input-group-alternative">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                        </div>
+                        <input class="form-control" placeholder="Search" type="text">
+                    </div>
+                </div>
+            </form>
+            <!-- User -->
+            <ul class="navbar-nav align-items-center d-none d-md-flex">
+                <li class="nav-item dropdown">
+                    <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media align-items-center">
+                <span class="avatar avatar-sm rounded-circle">
+<!--                  <img alt="Image placeholder" src="/img/theme/team-2-800x800.jpg">-->
+                </span>
+                            <div class="media-body ml-2 d-none d-lg-block">
+                                <span class="fullName  mb-0 text-sm  font-weight-bold"> Jones</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-arrow dropdown-menu-right">
+                        <a onclick="logout()" class="dropdown-item">
+                            <i class="ni ni-user-run"></i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <!-- Header -->
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-size: cover; background-position: center top;">
+        <!-- Mask -->
+        <span class="mask bg-gradient-default opacity-8"></span>
+        <!-- Header container -->
+        <div class="container-fluid d-flex align-items-center">
+            <div class="row">
+                <div class="col">
+                    <h1 class="display-2 text-white">Hello Sarah</h1>
+                    <!--                    <p class="text-white mt-0 mb-5">This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks</p>-->
+                    <a id="edit-profile-button" class="btn btn-info">Edit profile</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page content -->
+    <div class="container-fluid mt--7">
+        <div class="row">
+            <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
+                <div class="card card-profile shadow">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-3 order-lg-2">
+                            <div class="card-profile-image">
+                                <a href="#">
+                                    <!--                                    <img src="/img/theme/team-4-800x800.jpg" class="rounded-circle">-->
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0 pt-md-4">
+                        <div class="text-center">
+                            <h3>
+                                Department: Cardiology
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-8 order-xl-1">
+                <div class="card bg-secondary shadow">
+                    <div class="card-header bg-white border-0">
+                        <div class="row align-items-center">
+                            <div class="col-8">
+                                <h3 class="mb-0">My account</h3>
+                            </div>
+                            <div class="col-4 text-right">
+                                <a href="#!" class="btn btn-sm btn-primary">Settings</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <form>
+                            <h6 class="heading-small text-muted mb-4">User information</h6>
+                            <div class="pl-lg-4">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-username">Username</label>
+                                            <input type="text" id="input-username" class="form-control form-control-alternative" placeholder="Username" value="sarahcarter">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-email">Email address</label>
+                                            <input type="email" id="input-email" class="form-control form-control-alternative" placeholder="sarah.carter@gmail.com">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-first-name">First name</label>
+                                            <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" value="Sarah">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-middle-name">Middle name</label>
+                                            <input type="text" id="input-middle-name" class="form-control form-control-alternative" placeholder="Middle name" value="Elizabeth">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-last-name">Last name</label>
+                                            <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" value="Carter">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <label class="form-control-label" for="input-contact-number">Contact Number</label>
+                                            <input type="text" id="input-contact-number" class="form-control form-control-alternative" placeholder="Contact Number" value="+1 (829)-126-2024">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Save Button -->
+                        <div class="text-right">
+                            <button id="save-profile-button" class="btn btn-sm btn-primary" style="display: none;">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row align-items-center justify-content-xl-between">
+                <div class="col-xl-6">
+                    <div class="copyright text-center text-xl-left text-muted">
+                        &copy; 2024 <a href="http://localhost:8080/staff-dashboard" class="font-weight-bold ml-1" target="_blank">Well Care</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!--   Core   -->
+<script src="/js/plugins/jquery/dist/jquery.min.js"></script>
+<script src="/js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<!--   Optional JS   -->
+<!--   Argon JS   -->
+<script src="/js/argon-dashboard.min.js?v=1.1.2"></script>
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+    window.TrackJS &&
+    TrackJS.install({
+        token: "ee6fab19c5a04ac1a32a645abde4613a",
+        application: "argon-dashboard-free"
+    });
+</script>
+
+<script>
+    // Logout function
+    function logout() {
+        // Show confirmation alert
+        const confirmLogout = confirm("Are you sure you want to logout?");
+        if (confirmLogout) {
+            // Delete all cookies
+            document.cookie.split(";").forEach((cookie) => {
+                const eqPos = cookie.indexOf("=");
+                const name = eqPos > -1 ? cookie.substring(0, eqPos) : cookie;
+                document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+            });
+
+            // Redirect to login page
+            window.location.href = "/login";
+        }
+    }
+
+    // Fetch the first_name, middle_name, and last_name from the cookies
+    const firstName = getCookie('first_name') || 'Guest';
+    const middleName = getCookie('middle_name') || '';
+    const lastName = getCookie('last_name') || '';
+
+    // Format the full name
+    const fullName = `${firstName} ${lastName} `.trim();
+
+    // Ensure the dropdown toggles when clicked
+    document.addEventListener('DOMContentLoaded', () => {
+        const navbarNameElement = document.querySelector('.fullName'); // Target the top-right navbar name
+        if (navbarNameElement) {
+            navbarNameElement.textContent = fullName;
+        }
+
+        const dropdownToggle = document.querySelector('.nav-item.dropdown > .nav-link');
+        const dropdownMenu = document.querySelector('.nav-item.dropdown .dropdown-menu');
+
+        if (dropdownToggle && dropdownMenu) {
+            // Add click event listener to toggle dropdown visibility
+            dropdownToggle.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                dropdownMenu.classList.toggle('show');
+            });
+
+            // Close the dropdown when clicking outside
+            document.addEventListener('click', (event) => {
+                if (
+                    !dropdownToggle.contains(event.target) &&
+                    !dropdownMenu.contains(event.target)
+                ) {
+                    dropdownMenu.classList.remove('show');
+                }
+            });
+        } else {
+            console.error('Dropdown toggle or menu element not found in the DOM.');
+        }
+
+        const logoutLink = document.querySelector(".dropdown-item[onclick='logout()']");
+        if (logoutLink) {
+            logoutLink.addEventListener("click", (event) => {
+                event.preventDefault(); // Prevent default link behavior
+                logout(); // Call the logout function
+            });
+        } else {
+            console.error("Logout link not found in the DOM.");
+        }
+    });
+
+    const staffId = getCookie('id'); // Ensure the 'id' cookie is set when the user logs in
+    console.log(staffId);
+
+    // Function to fetch staff details and populate the fields
+    async function fetchAndDisplayStaffDetails() {
+        // Get the staff ID from the cookie
+
+        if (!staffId) {
+            alert('Staff ID not found. Please log in.');
+            window.location.href = '/login'; // Redirect to login if ID is missing
+            return;
+        }
+
+        try {
+            // Fetch staff details from the API
+            const response = await fetch(`/api/v1/staff/get/${staffId}`, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${getCookie('token')}`, // Include JWT token
+                    'Content-Type': 'application/json',
+                },
+            });
+            console.log(response);
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data);
+
+                // Populate fields with the fetched data
+                document.getElementById('input-username').value = data.username;
+                document.getElementById('input-email').value = data.email;
+                document.getElementById('input-first-name').value = data.firstName;
+                document.getElementById('input-middle-name').value = data.middleName || '';
+                document.getElementById('input-last-name').value = data.lastName;
+                document.getElementById('input-contact-number').value = data.phoneNumber;
+
+                // Update display
+                document.querySelector('.card-profile .text-center h3:nth-child(1)').innerText = `Department: ${data.department}`;
+
+                const fullName = `${data.firstName} ${data.middleName ? data.middleName + ' ' : ''}${data.lastName}`;
+
+                document.querySelector('.display-2.text-white').innerText = `Hello ${fullName}`;
+                document.querySelector('.media-body.ml-2.d-none.d-lg-block .font-weight-bold').innerText = data.firstName;
+            } else {
+                alert('Failed to fetch staff details. Please try again.');
+                console.error('Error:', response.statusText);
+            }
+        } catch (error) {
+            console.error('Error fetching staff details:', error);
+            alert('An error occurred while fetching staff details.');
+        }
+    }
+
+    // Fetch and populate staff details on page load
+    document.addEventListener('DOMContentLoaded', fetchAndDisplayStaffDetails);
+
+
+    // Function to disable all form inputs
+    function toggleFormInputs(disabled) {
+        const formElements = document.querySelectorAll('form input, form select, form textarea');
+        formElements.forEach(element => {
+            element.disabled = disabled;
+        });
+
+        // Show or hide the save button based on the edit state
+        const saveButton = document.getElementById('save-profile-button');
+        saveButton.style.display = disabled ? 'none' : 'block';
+    }
+
+    // Function to enable form inputs when edit button is clicked
+    function enableFormInputs() {
+        toggleFormInputs(false);
+    }
+
+    // Function to handle save action
+    function saveProfile() {
+        // Collect form data
+        const profileData = {
+            username: document.getElementById('input-username').value,
+            email: document.getElementById('input-email').value,
+            firstName: document.getElementById('input-first-name').value,
+            middleName: document.getElementById('input-middle-name').value,
+            lastName: document.getElementById('input-last-name').value,
+            phoneNumber: document.getElementById('input-contact-number').value,
+        };
+
+        console.log("Profile Data to Save:", profileData);
+
+        fetch(`/api/v1/staff/update/${staffId}`, {
+            method: 'PUT',
+            headers: {
+                'Authorization': `Bearer ${getCookie('token')}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(profileData),
+        })
+            .then(response => {
+                if (response.ok) {
+                    alert('Profile updated successfully.');
+                    toggleFormInputs(true); // Disable form again
+                } else {
+                    alert('Failed to update profile.');
+                }
+            })
+            .catch(error => console.error('Error saving profile:', error));
+    }
+
+    // Attach event listener to the "Edit profile" button
+    document.addEventListener('DOMContentLoaded', () => {
+        toggleFormInputs(true); // Disable all inputs initially
+        document.getElementById('edit-profile-button').addEventListener('click', enableFormInputs);
+        document.getElementById('save-profile-button').addEventListener('click', saveProfile);
+    });
+</script>
+</body>
+
+</html>

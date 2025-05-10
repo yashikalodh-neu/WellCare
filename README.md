@@ -1,4 +1,4 @@
-# WellCare
+# WellCare - Hospital Management System
 
 > Hospitals today face increasing challenges in managing their operations efficiently due to growing
 patient demands, fragmented workflows, and reliance on manual processes. Issues such as inefficient
